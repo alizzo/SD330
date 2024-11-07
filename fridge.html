@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>E04 Refrigerator</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body onload="onLoad()">
+
+<div id="fridge">
+
+     <div id="controls">
+        <input type="button" class="button off" id="button1" onclick="onOff()" value="Off">
+        <p id="clock" onclick="toggleTime()">00:00:00 AM</p>
+    </div>
+
+    <div id="display-area">
+        <!-- Different Page/Image Views -->
+        <div id="view-shelf" class="view">
+            <img src="https://aptokash.github.io/SD330-2/06-fridge.jpg" alt="View Inside">
+        </div>
+
+        <div id="view-temperature" class="view">
+            <h2>Temperature: <span id="temperature" onclick="toggleTemp()""></span>°<span id="temp-unit">F</span></h2>
+                <button onclick="changeTemp('increase')">Increase</button>
+                <button onclick="changeTemp('decrease')">Decrease</button>
+               
+        </div>
+          <div id="view-weather" class="view">
+            <h2>Current Weather</h2>
+            <p id="weather-info">Cloudy with a chance of meatballs.</p>
+        </div>
+
+        <div id="view-timer" class="view">
+            <h2>Minute Timer</h2>
+            <input type="number" id="timer-input-minutes" placeholder="Enter minutes">
+            <input type="number" id="timer-input-seconds" placeholder="Enter seconds">
+            <button onclick="startTimer()">Start Timer</button>
+            <p id="timer-display">0:00</p>
+        </div>
+        
+        <div id="view-netflix" class="view">
+            <img src="https://aptokash.github.io/SD330-2/06-tv.jpg" alt="Netflix">
+        </div>
+        <div id="view-browser" class="view">
+            <img src="https://aptokash.github.io/SD330-2/06-web.jpg" alt="Browser">
+            <button onclick="toggleTV()">Turn On/Off</button>  
+        </div>
+        <div id="view-shopping-list" class="view">
+            <h2>Shopping List</h2>
+            <ul id="shopping-list">
+                <li>Eggs</li>
+                <li>Milk</li>
+                <li>Bread</li>
+                <li>Butter</li>
+                <li>Cheese</li>
+            </ul>
+            <input type="text" id="item-input" placeholder="Add an item">
+            <button onclick="addItem()">Add Item</button>
+        </div>
+
+        <div id="view-music-player" class="view">
+            <h2>Music Player</h2>
+            <button onclick="playMusic()">Play Music</button>
+            <button onclick="stopMusic()">Stop Music</button>
+        </div>
+        
+    </div> <!-- End of Different Page/Image Views -->
+
+    <div id="navigation">
+        <div class="nav-item" onclick="changeView('view-shelf', this)">View Inside</div>
+        <div class="nav-item" onclick="changeView('view-temperature', this)">Temperature</div>
+        <div class="nav-item" onclick="changeView('view-weather', this)">Weather</div>
+        <div class="nav-item" onclick="changeView('view-timer', this)">Timer</div>
+        <div class="nav-item" onclick="changeView('view-shopping-list', this)">Recommend Shopping list</div>
+        <div class="nav-item" onclick="changeView('view-netflix', this)">Netflix</div>
+        <div class="nav-item" onclick="changeView('view-browser', this)">Browser</div>
+        <div class="nav-item" onclick="changeView('view-music-player', this)">Music Player</div>
+       
+    </div>
+
+</div>
+
+<footer>
+    <div id="bottom"></div> <!-- See JS Globals-->
+</footer>
+
+<script src="javascript/script.js"></script>
+</body>
+</html>
