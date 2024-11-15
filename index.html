@@ -17,21 +17,25 @@
 		function Filelist(){
 			
 		var htmlString = "";
-		
+
+        const excludeList = ['audio', 'css', 'javascript'];
+
 		// this creates JS object 'data' with a list of files  
-        // change "aptokash/SD330" to your github id and repository name 
 		(async () => {
 			const response = await fetch("https://api.github.com/repos/alizzo/SD330/contents/");
 			const data = await response.json();
     	
-		// loop through the list of files, set "file" to each file name
-    		for (let file of data) {
-				fname = file.name;           
-				fpath = "https://alizzo.github.io/SD330/" + fname;  
-				
-				htmlString += "<p>" + fname ;
-				htmlString += "<p>" + "<a href=" + fpath  + ">" + fpath + "</a>";
-			}
+
+        // Loop through the list of files, filtering out excluded names
+        for (let file of data) {
+            const fname = file.name;
+            if (!excludeList.includes(fname)) { // Exclude files/directories in the list
+                const fpath = "https://alizzo.github.io/SD330/" + fname;
+
+                htmlString += "<p>" + fname;
+                htmlString += "<p>" + "<a href=" + fpath + ">" + fpath + "</a>";
+            }
+        }
         
 		document.getElementById('files').innerHTML = htmlString;
 		})()
