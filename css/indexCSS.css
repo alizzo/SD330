@@ -3,10 +3,40 @@ body {
     padding: 0; 
     height: 100vh; /* Full viewport height */
     width: 100vw; /* Full viewport width */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
     background-image: url('../images/linen.png'); 
     background-size: cover; /* Make sure the image covers the entire background */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; 
     background-attachment: fixed; /* Keep the background fixed during scrolling */
     font-family: Arial, sans-serif; 
+    color: black;
+    text-align: center; 
+}
+
+h2 {
+    text-align: center; 
+    margin-top: 20px; 
+    color: black;
+}
+
+#files{
+    flex-grow: 1; /* Allows main content to grow and take up space */
+    padding: 20px; 
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background 60%*/
+    color: white; /* Set text color to white */
+    font-size: 18px; /* Adjust font size for readability */
+    border-radius: 10px; /* Rounded corners */
+    max-width: 80%; 
+    margin: 0 auto; /* Center align the content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7); /* Optional: Add a background color */
+
 }
