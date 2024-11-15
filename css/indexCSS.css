@@ -1,0 +1,12 @@
+body {
+    margin: 0;
+    padding: 0; 
+    height: 100vh; /* Full viewport height */
+    width: 100vw; /* Full viewport width */
+    background-image: url('../images/linen.png'); 
+    background-size: cover; /* Make sure the image covers the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; 
+    background-attachment: fixed; /* Keep the background fixed during scrolling */
+    font-family: Arial, sans-serif; 
+}
