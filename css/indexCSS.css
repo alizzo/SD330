@@ -22,6 +22,19 @@ h2 {
     color: black;
 }
 
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.portrait {
+    width: 150px; /* Adjust width as needed */
+    height: auto; /* Maintains aspect ratio */
+    margin-top: 20px; /* Optional: add spacing above/below if needed */
+}
+
 #files{
     flex-grow: 1; /* Allows main content to grow and take up space */
     padding: 20px; 
