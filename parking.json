@@ -11,90 +11,100 @@
         "security": "Blue light emergency phones and patrols",
         "parkingSpaces": [
             {
-                "space1": {
-                    "type": "Student",
-                    "status": "Available",
-                    "handicap": false,
-                    "filledDateTime": null,
-                    "reservedDateTime": null
-                },
-                "space2": {
-                    "type": "Faculty/Staff",
-                    "status": "Filled",
-                    "handicap": false,
-                    "filledDateTime": "2024-11-21T08:15:00",
-                    "reservedDateTime": null
-                },
-                "space3": {
-                    "type": "Handicap",
-                    "status": "Available",
-                    "handicap": true,
-                    "filledDateTime": null,
-                    "reservedDateTime": null
-                },
-                "space4": {
-                    "type": "Reserved",
-                    "status": "Reserved",
-                    "handicap": false,
-                    "filledDateTime": null,
-                    "reservedDateTime": "2024-11-21T10:00:00"
-                },
-                "space5": {
-                    "type": "Student",
-                    "status": "Filled",
-                    "handicap": false,
-                    "filledDateTime": "2024-11-21T07:45:00",
-                    "reservedDateTime": null
-                },
-                "space6": {
-                    "type": "Faculty/Staff",
-                    "status": "Available",
-                    "handicap": false,
-                    "filledDateTime": null,
-                    "reservedDateTime": null
-                },
-                "space7": {
-                    "type": "Handicap",
-                    "status": "Filled",
-                    "handicap": true,
-                    "filledDateTime": "2024-11-21T09:30:00",
-                    "reservedDateTime": null
-                },
-                "space8": {
-                    "type": "Student",
-                    "status": "Available",
-                    "handicap": false,
-                    "filledDateTime": null,
-                    "reservedDateTime": null
-                },
-                "space9": {
-                    "type": "Reserved",
-                    "status": "Reserved",
-                    "handicap": false,
-                    "filledDateTime": null,
-                    "reservedDateTime": "2024-11-21T11:00:00"
-                },
-                "space10": {
-                    "type": "Faculty/Staff",
-                    "status": "Filled",
-                    "handicap": false,
-                    "filledDateTime": "2024-11-21T08:00:00",
-                    "reservedDateTime": null
-                },
-                "space11": {
-                    "type": "Handicap",
-                    "status": "Available",
-                    "handicap": true,
-                    "filledDateTime": null,
-                    "reservedDateTime": null
-                },
-                "space12": {
-                    "type": "Student",
-                    "status": "Filled",
-                    "handicap": false,
-                    "filledDateTime": "2024-11-21T07:30:00",
-                    "reservedDateTime": null
-                }
+                "SpaceID": "1",
+                "type": "Student",
+                "status": "Available",
+                "handicap": false,
+                "filledDateTime": null,
+                "reservedDateTime": null
+            },
+            {
+                "SpaceID": "2",
+                "type": "Faculty/Staff",
+                "status": "Filled",
+                "handicap": false,
+                "filledDateTime": "2024-11-21T08:15:00",
+                "reservedDateTime": null
+            },
+            {
+                "SpaceID": "3",
+                "type": "Handicap",
+                "status": "Available",
+                "handicap": true,
+                "filledDateTime": null,
+                "reservedDateTime": null
+            },
+            {
+                "SpaceID": "4",
+                "type": "Reserved",
+                "status": "Reserved",
+                "handicap": false,
+                "filledDateTime": null,
+                "reservedDateTime": "2024-11-21T10:00:00"
+            },
+            {
+                "SpaceID": "5",
+                "type": "Student",
+                "status": "Filled",
+                "handicap": false,
+                "filledDateTime": "2024-11-21T07:45:00",
+                "reservedDateTime": null
+            },
+            {
+                "SpaceID": "6",
+                "type": "Faculty/Staff",
+                "status": "Available",
+                "handicap": false,
+                "filledDateTime": null,
+                "reservedDateTime": null
+            },
+            {
+                "SpaceID": "7",
+                "type": "Handicap",
+                "status": "Filled",
+                "handicap": true,
+                "filledDateTime": "2024-11-21T09:30:00",
+                "reservedDateTime": null
+            },
+            {
+                "SpaceID": "8",
+                "type": "Student",
+                "status": "Available",
+                "handicap": false,
+                "filledDateTime": null,
+                "reservedDateTime": null
+            },
+            {
+                "SpaceID": "9",
+                "type": "Reserved",
+                "status": "Reserved",
+                "handicap": false,
+                "filledDateTime": null,
+                "reservedDateTime": "2024-11-21T11:00:00"
+            },
+            {
+                "SpaceID": "10",
+                "type": "Faculty/Staff",
+                "status": "Filled",
+                "handicap": false,
+                "filledDateTime": "2024-11-21T08:00:00",
+                "reservedDateTime": null
+            },
+            {
+                "SpaceID": "11",
+                "type": "Handicap",
+                "status": "Available",
+                "handicap": true,
+                "filledDateTime": null,
+                "reservedDateTime": null
+            },
+            {
+                "SpaceID": "12",
+                "type": "Student",
+                "status": "Filled",
+                "handicap": false,
+                "filledDateTime": "2024-11-21T07:30:00",
+                "reservedDateTime": null
             }
         ]
     },
@@ -151,7 +161,6 @@
         "lighting": "Bright lighting",
         "security": "Guard station nearby"
     },
-
     "St_Anns_North_End_Lot": {
         "Name": "St. Anns/North End Lot",
         "Map": "stAnns.jpg",
@@ -174,5 +183,4 @@
         "lighting": "Bright lighting",
         "security": "Guard station nearby"
     }
-    
 }
