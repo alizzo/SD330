@@ -1,0 +1,178 @@
+{
+    "McCann_Sheahan": {
+        "Name": "McCann Sheahan Lot",
+        "Map": "mapMcCannSheahan.jpg",
+        "totalSpaces": 100,
+        "comments": "Near the sports center, convenient for events.",
+        "accessibility": "Wheelchair accessible",
+        "overflow": "Foy Lot",
+        "maintanenceCost": 30000,
+        "lighting": "Well-lit at night",
+        "security": "Blue light emergency phones and patrols",
+        "parkingSpaces": [
+            {
+                "space1": {
+                    "type": "Student",
+                    "status": "Available",
+                    "handicap": false,
+                    "filledDateTime": null,
+                    "reservedDateTime": null
+                },
+                "space2": {
+                    "type": "Faculty/Staff",
+                    "status": "Filled",
+                    "handicap": false,
+                    "filledDateTime": "2024-11-21T08:15:00",
+                    "reservedDateTime": null
+                },
+                "space3": {
+                    "type": "Handicap",
+                    "status": "Available",
+                    "handicap": true,
+                    "filledDateTime": null,
+                    "reservedDateTime": null
+                },
+                "space4": {
+                    "type": "Reserved",
+                    "status": "Reserved",
+                    "handicap": false,
+                    "filledDateTime": null,
+                    "reservedDateTime": "2024-11-21T10:00:00"
+                },
+                "space5": {
+                    "type": "Student",
+                    "status": "Filled",
+                    "handicap": false,
+                    "filledDateTime": "2024-11-21T07:45:00",
+                    "reservedDateTime": null
+                },
+                "space6": {
+                    "type": "Faculty/Staff",
+                    "status": "Available",
+                    "handicap": false,
+                    "filledDateTime": null,
+                    "reservedDateTime": null
+                },
+                "space7": {
+                    "type": "Handicap",
+                    "status": "Filled",
+                    "handicap": true,
+                    "filledDateTime": "2024-11-21T09:30:00",
+                    "reservedDateTime": null
+                },
+                "space8": {
+                    "type": "Student",
+                    "status": "Available",
+                    "handicap": false,
+                    "filledDateTime": null,
+                    "reservedDateTime": null
+                },
+                "space9": {
+                    "type": "Reserved",
+                    "status": "Reserved",
+                    "handicap": false,
+                    "filledDateTime": null,
+                    "reservedDateTime": "2024-11-21T11:00:00"
+                },
+                "space10": {
+                    "type": "Faculty/Staff",
+                    "status": "Filled",
+                    "handicap": false,
+                    "filledDateTime": "2024-11-21T08:00:00",
+                    "reservedDateTime": null
+                },
+                "space11": {
+                    "type": "Handicap",
+                    "status": "Available",
+                    "handicap": true,
+                    "filledDateTime": null,
+                    "reservedDateTime": null
+                },
+                "space12": {
+                    "type": "Student",
+                    "status": "Filled",
+                    "handicap": false,
+                    "filledDateTime": "2024-11-21T07:30:00",
+                    "reservedDateTime": null
+                }
+            }
+        ]
+    },
+    "Foy_Lot": {
+        "Name": "Foy Lot",
+        "Map": "mapFoy.jpg",
+        "totalSpaces": 150,
+        "comments": "Close to the main academic buildings.",
+        "maintanenceCost": 30000,
+        "accessibility": "Partial wheelchair access",
+        "overflow": "McCann Sheahan Lot",
+        "lighting": "Moderate lighting",
+        "security": "CCTV coverage"
+    },
+    "Dyson_Lot": {
+        "Name": "Dyson Lot",
+        "Map": "mapDyson.jpg",
+        "totalSpaces": 120,
+        "comments": "Adjacent to the library and cafeteria.",
+        "accessibility": "Wheelchair accessible",
+        "overflow": "McCann Sheahan Lot",
+        "maintanenceCost": 30000,
+        "lighting": "Bright LED lights",
+        "security": "cameras"
+    },
+    "Donnelly_Lot": {
+        "Name": "Donnelly Lot",
+        "McCann": "mapDonnelly.jpg",
+        "totalSpaces": 80,
+        "comments": "Limited spaces, fills up quickly.",
+        "accessibility": "Not wheelchair accessible",
+        "overflow": "McCann Sheahan Lot",
+        "lighting": "Dim lighting",
+        "security": "blue emergncy light, cameras"
+    },
+    "Fontaine_Lot": {
+        "Name": "Fontaine Lot",
+        "Map": "mapFontaine.jpg",
+        "totalSpaces": 200,
+        "comments": "Ideal for faculty and staff parking.",
+        "maintanenceCost": 30000,
+        "accessibility": "Wheelchair accessible",
+        "lighting": "Well-lit with LED lights",
+        "security": "24/7 surveillance cameras"
+    },
+    "Hoop_Lot": {
+        "Name": "Hoop Lot",
+        "Map": "mapHoop.jpg",
+        "totalSpaces": 180,
+        "comments": "Convenient for the gym and student dorms.",
+        "overflow": "McCann Sheahan Lot",
+        "maintanenceCost": 30000,
+        "accessibility": "Wheelchair accessible",
+        "lighting": "Bright lighting",
+        "security": "Guard station nearby"
+    },
+
+    "St_Anns_North_End_Lot": {
+        "Name": "St. Anns/North End Lot",
+        "Map": "stAnns.jpg",
+        "totalSpaces": 180,
+        "comments": "Convenient for the gym and student dorms.",
+        "overflow": "McCann Sheahan Lot",
+        "maintanenceCost": 30000,
+        "accessibility": "Wheelchair accessible",
+        "lighting": "Bright lighting",
+        "security": "Blue light emergency phones"
+    },
+    "Beck_West_Lot": {
+        "Name": "Beck West Lot",
+        "Map": "beckWest.jpg",
+        "totalSpaces": 180,
+        "comments": "Convenient for the gym and student dorms.",
+        "overflow": "McCann Sheahan Lot",
+        "maintanenceCost": 30000,
+        "accessibility": "Wheelchair accessible",
+        "lighting": "Bright lighting",
+        "security": "Guard station nearby"
+    }
+    
+}
