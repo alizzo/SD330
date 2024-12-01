@@ -17,7 +17,7 @@
                 return;
             }
             try {
-                const response = await fetch("parking.json");
+                const response = await fetch("https://alizzo.github.io/SD330/parking.json");
                 if (!response.ok) throw new Error("Failed to load parking.json");
                 const lots = await response.json();
                 const lot = lots.find(l => l.name === lotName);
