@@ -1,13 +1,10 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spaces in Lot</title>
-    <link rel="stylesheet" href="../../SD330/css/parkingStyles.css">
+    <link rel="stylesheet" href="../css/parkingStyles.css">
     <script>
         async function loadSpaces() {
             const params = new URLSearchParams(window.location.search);
@@ -17,24 +14,47 @@
                 return;
             }
             try {
-                const response = await fetch("https://alizzo.github.io/SD330/parking.json");
+                const response = await fetch("../parking.json");
                 if (!response.ok) throw new Error("Failed to load parking.json");
+
                 const lots = await response.json();
-                const lot = lots.find(l => l.name === lotName);
-                if (!lot) throw new Error("Lot not found.");
+
+                let lotKey = null;
+                for (const key in lots) {
+                    if (lots[key].Name === lotName) {
+                        lotKey = key;
+                        break;
+                    }
+                }
+
+                if (!lotKey) {
+                    throw new Error(`Lot "${lotName}" not found.`);
+                }
+
+                const lot = lots[lotKey];
                 const container = document.getElementById("spaces");
-                lot.spaces.forEach(space => {
-                    const spaceDiv = document.createElement("div");
-                    spaceDiv.innerHTML = `
-                        <h2>Space ${space.id}</h2>
-                        <p>Status: ${space.status}</p>
-                    `;
-                    container.appendChild(spaceDiv);
-                });
+
+                if (lot.parkingSpaces) {
+                    lot.parkingSpaces.forEach(space => {
+                        const spaceDiv = document.createElement("div");
+                        spaceDiv.innerHTML = `
+                            <h2>Space ${space.SpaceID}</h2>
+                            <p><b>Type:</b> ${space.type}</p>
+                            <p><b>Status:</b> ${space.status}</p>
+                            <p><b>Handicap Accessible:</b> ${space.handicap ? "Yes" : "No"}</p>
+                            <p><b>Filled Date/Time:</b> ${space.filledDateTime || "N/A"}</p>
+                            <p><b>Reserved Date/Time:</b> ${space.reservedDateTime || "N/A"}</p>
+                        `;
+                        container.appendChild(spaceDiv);
+                    });
+                } else {
+                    container.innerHTML = "<p>No spaces available for this lot.</p>";
+                }
             } catch (error) {
-                document.getElementById("spaces").innerText = "Error loading spaces: " + error.message;
+                document.getElementById("spaces").innerText = `Error loading spaces: ${error.message}`;
             }
         }
+
         window.onload = loadSpaces;
     </script>
 </head>
@@ -45,7 +65,7 @@
         </a>
         <a href="../parking.html">Home</a>
         <a href="lots.html">View Lots</a>
-        <a href="space.html?lot=McCann Sheahan Lot">View Spaces</a>
+        <a href="space.html?lot=McCann%20Sheahan%20Lot">View Spaces</a>
         <a href="error.html">Invalid Link</a>
     </nav>
     <div class="breadcrumb">
@@ -59,4 +79,3 @@
     </footer>
 </body>
 </html>
-
