@@ -1,0 +1,62 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spaces in Lot</title>
+    <link rel="stylesheet" href="../../SD330/css/parkingStyles.css">
+    <script>
+        async function loadSpaces() {
+            const params = new URLSearchParams(window.location.search);
+            const lotName = params.get("lot");
+            if (!lotName) {
+                document.getElementById("spaces").innerText = "No lot specified.";
+                return;
+            }
+            try {
+                const response = await fetch("parking.json");
+                if (!response.ok) throw new Error("Failed to load parking.json");
+                const lots = await response.json();
+                const lot = lots.find(l => l.name === lotName);
+                if (!lot) throw new Error("Lot not found.");
+                const container = document.getElementById("spaces");
+                lot.spaces.forEach(space => {
+                    const spaceDiv = document.createElement("div");
+                    spaceDiv.innerHTML = `
+                        <h2>Space ${space.id}</h2>
+                        <p>Status: ${space.status}</p>
+                    `;
+                    container.appendChild(spaceDiv);
+                });
+            } catch (error) {
+                document.getElementById("spaces").innerText = "Error loading spaces: " + error.message;
+            }
+        }
+        window.onload = loadSpaces;
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="../parking.html">
+            <img src="../images/MaristLogo.png" alt="Marist Logo" class="logo">
+        </a>
+        <a href="../parking.html">Home</a>
+        <a href="lots.html">View Lots</a>
+        <a href="space.html?lot=example">View Spaces</a>
+        <a href="error.html">Invalid Link</a>
+    </nav>
+    <div class="breadcrumb">
+        <a href="../parking.html">Home</a> &gt; <a href="space.html?lot=example">View Spaces</a>
+    </div>
+    <h1>Spaces in Lot</h1>
+    <div id="spaces"></div>
+    <footer>
+        <hr>
+        &copy; A. Lizzo, 2024
+    </footer>
+</body>
+</html>
+
