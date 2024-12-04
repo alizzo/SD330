@@ -3,24 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
-    <link rel="stylesheet" href="../../SD330/css/parkingStyles.css">
+    <title>404 - Glitch in the Matrix</title>
+    <link rel="stylesheet" href="../css/parkingStyles.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        nav {
+            background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
+            position: relative; /* Keep it above canvases */
+            z-index: 3; /* Ensure it stays on top */
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+        nav a {
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .breadcrumb {
+            background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
+            margin: 10px;
+            font-size: 14px;
+            z-index: 3; /* Ensure it stays on top */
+            position: relative;
+        }
+        .breadcrumb a {
+            color: #00f;
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .error-container {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .error-container h1 {
+            font-size: 5rem;
+            margin: 20px 0;
+        }
+        .error-container p {
+            font-size: 1.5rem;
+            color: #ccc;
+        }
+        #foreground {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 2;
+            color: #00FF00;
+            display: none;
+        }
+        #videoCanvas, #matrixCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* Ensure canvases are behind everything */
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav>
-        <a href="../parking.html">
+        <a href="parking.html">
             <img src="../images/MaristLogo.png" alt="Marist Logo" class="logo">
         </a>
-        <a href="../parking.html">Home</a>
-        <a href="lots.html">View Lots</a>
-        <a href="space.html?lot=McCann_Sheahan">View Spaces</a>
-        <a href="error.html">Invalid Link</a>
+        <a href="parking.html">Home</a>
+        <a href="Redirects/lots.html">View Lots</a>
+        <a href="Redirects/space.html?lot=McCann_Sheahan">View Spaces</a>
+        <a href="Redirects/error.html">Invalid Link</a>
     </nav>
+
+    <!-- Breadcrumb -->
     <div class="breadcrumb">
-        <a href="../parking.html">Home</a> &gt; 404 Error
+        <a href="parking.html">Home</a> &gt; <span>404 Error</span>
     </div>
-    <h1>404 - Page Not Found</h1>
-    <p>Oops! The page you are looking for does not exist.</p>
-    <a href="../parking.html">Go Back to Home</a>
+
+    <!-- Error Content -->
+    <div class="error-container">
+        <canvas id="videoCanvas"></canvas>
+        <canvas id="matrixCanvas"></canvas>
+        <div id="foreground">
+            <h1>404</h1>
+            <p>There is a glitch in the matrix</p>
+        </div>
+        <video id="bsodVideo" src="../videos/glitch.mp4" autoplay muted style="display:none;"></video>
+        <button id="soundButton" style="
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 4;
+            padding: 10px 20px;
+            background-color: #00FF00;
+            color: black;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            display: none;
+        ">🔊 Sound On</button>
+    </div>
+
+<script>
+    const videoCanvas = document.getElementById('videoCanvas');
+    const videoContext = videoCanvas.getContext('2d');
+    const video = document.getElementById('bsodVideo');
+    const soundButton = document.getElementById('soundButton');
+
+    const matrixCanvas = document.getElementById('matrixCanvas'); // Matrix canvas
+    const matrixContext = matrixCanvas.getContext('2d'); // Initialize matrix context
+    const foreground = document.getElementById('foreground'); // Foreground text
+
+    // Set initial video volume and show the button
+    video.volume = 0.5;
+    soundButton.style.display = 'block';
+
+    // Button click toggles video sound
+    soundButton.addEventListener('click', () => {
+        video.muted = !video.muted; // Toggle mute
+        soundButton.textContent = video.muted ? '🔊 Sound On' : '🔇 Sound Off';
+    });
+
+    // Resize canvases
+    function resizeCanvas() {
+        videoCanvas.width = matrixCanvas.width = window.innerWidth;
+        videoCanvas.height = matrixCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Play video on the video canvas
+    function playVideo() {
+        video.currentTime = 0;
+        video.play();
+
+        const drawVideoFrame = () => {
+            if (video.paused || video.ended) {
+                videoContext.clearRect(0, 0, videoCanvas.width, videoCanvas.height);
+                if (video.ended) {
+                    startMatrixEffect(); // Call the Matrix effect after the video ends
+                }
+                return;
+            }
+            videoContext.drawImage(video, 0, 0, videoCanvas.width, videoCanvas.height);
+            requestAnimationFrame(drawVideoFrame);
+        };
+
+        drawVideoFrame();
+    }
+
+    // Matrix effect setup
+    const symbols = 'アカサタナハマヤラワイキシチニヒミリウクスツヌフムユルエケセテネヘメレオコソトノホモヨロヲンabcdefghijklmnopqrstuvwxyz0123456789';
+    const symbolArray = symbols.split('');
+    const fontSize = 16;
+    let columns, drops;
+
+    function initializeMatrix() {
+        columns = Math.floor(matrixCanvas.width / fontSize);
+        drops = Array.from({ length: columns }, () => Math.floor(Math.random() * matrixCanvas.height / fontSize));
+    }
+    initializeMatrix();
+
+    function drawMatrix() {
+        matrixContext.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        matrixContext.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+        matrixContext.fillStyle = '#00FF00';
+        matrixContext.font = `${fontSize}px monospace`;
+
+        drops.forEach((y, x) => {
+            const text = symbolArray[Math.floor(Math.random() * symbolArray.length)];
+            matrixContext.fillText(text, x * fontSize, y * fontSize);
+
+            if (y * fontSize > matrixCanvas.height && Math.random() > 0.975) {
+                drops[x] = 0;
+            } else {
+                drops[x]++;
+            }
+        });
+    }
+
+    function startMatrixEffect() {
+        videoCanvas.style.display = 'none';
+        foreground.style.display = 'block';
+        setInterval(drawMatrix, 33);
+    }
+
+    playVideo();
+</script>
+
 </body>
 </html>
