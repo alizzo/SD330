@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spaces in Lot</title>
-    <link rel="stylesheet" href="../../SD330/css/parkingStyles.css">
+    <link rel="stylesheet" href="css/parkingStyles.css">
     <script>
         async function loadSpaces() {
         const params = new URLSearchParams(window.location.search);
@@ -41,7 +41,8 @@
                 container.appendChild(spaceDiv);
             });
         } catch (error) {
-            document.getElementById("spaces").innerText = "Error loading spaces: " + error.message;
+            //document.getElementById("spaces").innerText = "Error loading spaces: " + error.message;
+            window.location.href = "error.html"; // Redirect to the error page
         }
     }
 
@@ -51,16 +52,16 @@
 </head>
 <body>
     <nav>
-        <a href="../parking.html">
-            <img src="../images/MaristLogo.png" alt="Marist Logo" class="logo">
+        <a href="parking.html">
+            <img src="images/MaristLogo.png" alt="Marist Logo" class="logo">
         </a>
-        <a href="../parking.html">Home</a>
+        <a href="parking.html">Home</a>
         <a href="lots.html">View Lots</a>
         <a href="space.html?lot=McCann_Sheahan">View Spaces</a>
         <a href="error.html">Invalid Link</a>
     </nav>
     <div class="breadcrumb">
-        <a href="../parking.html">Home</a> &gt; <a href="space.html?lot=McCann_Sheahan">View Spaces</a>
+        <a href="parking.html">Home</a> &gt; <a href="space.html?lot=McCann_Sheahan">View Spaces</a>
     </div>
     <h1>Spaces in Lot</h1>
     <div id="spaces"></div>
